@@ -9,7 +9,7 @@ public class Inlamningsuppgift1 {
 
         // Information om spelare 1
         System.out.print("Spelare 1's förnamn: ");
-        String s1förnamn = scanner.nextLine().trim();
+        String s1förnamn = scanner.nextLine().trim(); //trim tar bort överflödiga mellanslag som användaren kan råka skriva ut.
 
         System.out.print("Spelare 1's efternamn: ");
         String s1efternamn = scanner.nextLine().trim();
@@ -21,23 +21,26 @@ public class Inlamningsuppgift1 {
         System.out.print("Spelare 2's efternamn: ");
         String s2efternamn = scanner.nextLine().trim();
 
+        //Här är våra två spelare
         Spelare player1 = new Spelare(s1förnamn, s1efternamn);
         Spelare player2 = new Spelare(s2förnamn, s2efternamn);
 
+        //Vi ber användaren bestämma vad den vill göra
         System.out.println("Skriv 'spela' för att spela, eller 'stopp' för att avsluta.");
         String svar = scanner.nextLine().trim();
 
+        //Om användaren skriver ut "spela" så skriver datorn ut att spelet startar.
         if (svar.equals("spela")) {
             System.out.println("Spelet startar");
 
             //spelare 1 slår sitt slag
-            for (int i = 1; i <= 2; i++) {
-                int roll = random.nextInt(6) + 1;
-                player1.addToScore(roll);
+            for (int i = 1; i <= 2; i++) { //Här skapar vi en variabel, ett villkor, och hur mycket som ska öka för varje varv
+                int roll = random.nextInt(6) + 1; //här slår vi en tärning
+                player1.addToScore(roll); //vi lägger till resultatet
                 System.out.println(player1.getFullName() + "slog " + roll + " i kast nr " + i + ")");
             }
 
-            System.out.println(); //bara en tom rad
+            System.out.println(); //bara en tom rad i det som visas för användaren
 
 // Spelare 2 slår sitt slag
             for (int i = 1; i <= 2; i++) {
