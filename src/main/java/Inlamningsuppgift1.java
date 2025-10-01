@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 
 public class Inlamningsuppgift1 {
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
@@ -14,7 +15,7 @@ public class Inlamningsuppgift1 {
         System.out.print("Spelare 1's efternamn: ");
         String s1efternamn = scanner.nextLine().trim();
 
-        // Information om spelare 2
+        // Information om spelare 2System.out.print("Spelare 2's förnamn: ");
         System.out.print("Spelare 2's förnamn: ");
         String s2förnamn = scanner.nextLine().trim();
 
@@ -37,7 +38,7 @@ public class Inlamningsuppgift1 {
             for (int i = 1; i <= 2; i++) { //Här skapar vi en variabel, ett villkor, och hur mycket som ska öka för varje varv
                 int roll = random.nextInt(6) + 1; //här slår vi en tärning
                 player1.addToScore(roll); //vi lägger till resultatet
-                System.out.println(player1.getFullName() + "slog " + roll + " i kast nr " + i + ")");
+                System.out.println(player1.getFullName() + "slog " + roll + " i kast nr " + i);
             }
 
             System.out.println(); //bara en tom rad i det som visas för användaren
@@ -46,7 +47,7 @@ public class Inlamningsuppgift1 {
             for (int i = 1; i <= 2; i++) {
                 int roll = random.nextInt(6) + 1;
                 player2.addToScore(roll);
-                System.out.println(player2.getFullName() + " slog " + roll + " i kast nr " + i + ")");
+                System.out.println(player2.getFullName() + " slog " + roll + " i kast nr " + i);
             }
 
             // vi skriver ut vad alla fick i resultat
@@ -56,7 +57,7 @@ public class Inlamningsuppgift1 {
 
             //vi ser vem som fick högst poäng och skriver ut vinnaren eller oavgjort
             if (player1.getScore() > player2.getScore()) {
-                System.out.println(" Vinnaren är " + player1.getFullName());
+                System.out.println("Vinnaren är " + player1.getFullName());
             } else if (player1.getScore() < player2.getScore()) {
                 System.out.println("Vinnaren är " + player2.getFullName());
             } else {
@@ -72,4 +73,40 @@ public class Inlamningsuppgift1 {
         scanner.close();
 
     }
+
 }
+
+//Här lagrar vi data för våra användare
+
+class Spelare {
+    private String firstname;
+    private String lastname;
+    private int score;
+
+    //Konstruktor
+    public Spelare(String firstname, String lastname) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.score = 0;
+
+    }
+
+    //Här lägger vi till poäng i användarens totala poäng
+    public void addToScore(int scoreToAdd) {
+        this.score += scoreToAdd;
+    }
+
+    //denna metod returnerar hela användarens namn åt oss
+    public String getFullName() {
+        return firstname + " " + lastname;
+    }
+
+    //denna metod returnerar spelarens hela poäng
+    public int getScore() {
+        return score;
+    }
+
+
+}
+
+
